@@ -18,7 +18,20 @@ multiplyByFive(5); // returns 25
 
 ***********************************************************************/
 
-// Your code here 
+function dynamicMultiply(num) {
+  return function (num2) {
+    return num * num2
+  }
+}
+
+const doubler = dynamicMultiply(2); // returns a function
+doubler(5); // returns 10
+
+const tripler = dynamicMultiply(3);
+tripler(5); // returns 15
+
+const multiplyByFive = dynamicMultiply(5);
+multiplyByFive(5); // returns 25
 
 /**************DO NOT MODIFY ANYTHING UNDER THIS  LINE*****************/
 
