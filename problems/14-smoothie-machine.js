@@ -26,14 +26,17 @@ function smoothieMachine(...params) {
   let words = smoothie.split(' ');
 
   return function (...param) {
-    for (let i = 0; i < param.length; i++)
-      if (param[i] !== words.length - 1) {
-        words.push(param[i], ' and ');
-      } else if (words.length - 1 === param.length - 1) {
-        return words;
-
+    let recipt = words.length + params.length + param.length;
+    if (words.length < recipt) {
+      for (let el of params) {
+        words.push(el, 'and');
       }
-    return words
+      for (let ele of param) {
+        words.push(ele, 'and');
+      }
+
+    }
+    return words.join(' ')
   }
 }
 
