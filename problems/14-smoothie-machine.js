@@ -22,23 +22,15 @@ console.log(smoothie2("pineapple"));
 // prints "I'm having a smoothie with apples and bananas and berries and pineapple"
 ***********************************************************************/
 function smoothieMachine(...params) {
-  let smoothie = "I'm having a smoothie with";
-  let words = smoothie.split(' ');
+  let smoothie = "I'm having a smoothie with ";
 
   return function (...param) {
-    let recipt = words.length + params.length + param.length;
-    if (words.length < recipt) {
-      for (let el of params) {
-        words.push(el, 'and');
-      }
-      for (let ele of param) {
-        words.push(ele, 'and');
-      }
-
-    }
-    return words.join(' ')
+    params = params.concat(param);
+    console.log(params)
+    return smoothie + params.join(' and ');
   }
 }
+
 
 let smoothie1 = smoothieMachine();
 
